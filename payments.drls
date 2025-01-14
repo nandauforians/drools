@@ -1,3 +1,13 @@
-<drools rule files>
-  
-v12
+package com.example.drools.rules;
+
+import com.example.drools.model.RuleInput;
+import com.example.drools.model.RuleOutput;
+
+global com.example.drools.model.RuleOutput output;
+
+rule "Check Daily Transaction Limit"
+when
+    $input : RuleInput(amount > 1000)
+then
+    output.setMessage("The amount exceeds the daily transaction limit allowed.");
+end
